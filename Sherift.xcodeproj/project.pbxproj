@@ -12,7 +12,14 @@
 		0A138BF11F56C403007CD82C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A138BEF1F56C403007CD82C /* Main.storyboard */; };
 		0A138BF31F56C403007CD82C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A138BF21F56C403007CD82C /* Assets.xcassets */; };
 		0A138BF61F56C403007CD82C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A138BF41F56C403007CD82C /* LaunchScreen.storyboard */; };
-		0A138BFE1F56C50F007CD82C /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138BFD1F56C50F007CD82C /* TextAttributes.swift */; };
+		0A138BFE1F56C50F007CD82C /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138BFD1F56C50F007CD82C /* Attributes.swift */; };
+		0A138C001F57CF64007CD82C /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138BFF1F57CF64007CD82C /* TextEffect+Raw.swift */; };
+		0A138C041F57CFB5007CD82C /* GlyphDirection+IntValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138C031F57CFB5007CD82C /* GlyphDirection+IntValue.swift */; };
+		0A138C061F57D02E007CD82C /* Attributes+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138C051F57D02E007CD82C /* Attributes+Raw.swift */; };
+		0A138C081F57D0DC007CD82C /* Attributes+Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138C071F57D0DC007CD82C /* Attributes+Paragraph.swift */; };
+		0A138C0A1F57D172007CD82C /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A138C091F57D172007CD82C /* NSParagraphStyle+Map.swift */; };
+		0A3BCD601F57DB6A004E77B7 /* NSLineBreakMode+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCD5F1F57DB6A004E77B7 /* NSLineBreakMode+Equatable.swift */; };
+		0A3BCD641F57DFEE004E77B7 /* NSAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCD631F57DFED004E77B7 /* NSAttributedString+Attributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +30,14 @@
 		0A138BF21F56C403007CD82C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A138BF51F56C403007CD82C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A138BF71F56C403007CD82C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A138BFD1F56C50F007CD82C /* TextAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
+		0A138BFD1F56C50F007CD82C /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		0A138BFF1F57CF64007CD82C /* TextEffect+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextEffect+Raw.swift"; sourceTree = "<group>"; };
+		0A138C031F57CFB5007CD82C /* GlyphDirection+IntValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GlyphDirection+IntValue.swift"; sourceTree = "<group>"; };
+		0A138C051F57D02E007CD82C /* Attributes+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attributes+Raw.swift"; sourceTree = "<group>"; };
+		0A138C071F57D0DC007CD82C /* Attributes+Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attributes+Paragraph.swift"; sourceTree = "<group>"; };
+		0A138C091F57D172007CD82C /* NSParagraphStyle+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSParagraphStyle+Map.swift"; sourceTree = "<group>"; };
+		0A3BCD5F1F57DB6A004E77B7 /* NSLineBreakMode+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLineBreakMode+Equatable.swift"; sourceTree = "<group>"; };
+		0A3BCD631F57DFED004E77B7 /* NSAttributedString+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +72,14 @@
 			children = (
 				0A138BEB1F56C403007CD82C /* AppDelegate.swift */,
 				0A138BED1F56C403007CD82C /* ViewController.swift */,
-				0A138BFD1F56C50F007CD82C /* TextAttributes.swift */,
+				0A138BFD1F56C50F007CD82C /* Attributes.swift */,
+				0A138BFF1F57CF64007CD82C /* TextEffect+Raw.swift */,
+				0A138C031F57CFB5007CD82C /* GlyphDirection+IntValue.swift */,
+				0A138C051F57D02E007CD82C /* Attributes+Raw.swift */,
+				0A138C071F57D0DC007CD82C /* Attributes+Paragraph.swift */,
+				0A138C091F57D172007CD82C /* NSParagraphStyle+Map.swift */,
+				0A3BCD5F1F57DB6A004E77B7 /* NSLineBreakMode+Equatable.swift */,
+				0A3BCD631F57DFED004E77B7 /* NSAttributedString+Attributes.swift */,
 				0A138BEF1F56C403007CD82C /* Main.storyboard */,
 				0A138BF21F56C403007CD82C /* Assets.xcassets */,
 				0A138BF41F56C403007CD82C /* LaunchScreen.storyboard */,
@@ -140,9 +161,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3BCD641F57DFEE004E77B7 /* NSAttributedString+Attributes.swift in Sources */,
+				0A138C041F57CFB5007CD82C /* GlyphDirection+IntValue.swift in Sources */,
+				0A138C001F57CF64007CD82C /* TextEffect+Raw.swift in Sources */,
+				0A3BCD601F57DB6A004E77B7 /* NSLineBreakMode+Equatable.swift in Sources */,
 				0A138BEE1F56C403007CD82C /* ViewController.swift in Sources */,
-				0A138BFE1F56C50F007CD82C /* TextAttributes.swift in Sources */,
+				0A138BFE1F56C50F007CD82C /* Attributes.swift in Sources */,
+				0A138C0A1F57D172007CD82C /* NSParagraphStyle+Map.swift in Sources */,
 				0A138BEC1F56C403007CD82C /* AppDelegate.swift in Sources */,
+				0A138C081F57D0DC007CD82C /* Attributes+Paragraph.swift in Sources */,
+				0A138C061F57D02E007CD82C /* Attributes+Raw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +334,7 @@
 				0A138BFC1F56C403007CD82C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
