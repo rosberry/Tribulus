@@ -15,7 +15,7 @@ extension Attributes {
         result[NSBackgroundColorAttributeName] = backgroundColor
         result[NSBaselineOffsetAttributeName] = baseline
         result[NSForegroundColorAttributeName] = color
-        result[NSVerticalGlyphFormAttributeName] = direction?.intValue
+        result[NSVerticalGlyphFormAttributeName] = direction?.rawValue
         result[NSExpansionAttributeName] = expansion
         result[NSFontAttributeName] = font
         result[NSKernAttributeName] = kern
@@ -45,7 +45,7 @@ extension Attributes {
         baseline = attributes[NSBaselineOffsetAttributeName] as? Float
         color = attributes[NSForegroundColorAttributeName] as? UIColor
         if let direction = attributes[NSVerticalGlyphFormAttributeName] as? Int {
-            self.direction = GlyphDirection(intValue: direction)
+            self.direction = GlyphDirection(rawValue: direction)
         }
         expansion = attributes[NSExpansionAttributeName] as? Float
         font = attributes[NSFontAttributeName] as? UIFont

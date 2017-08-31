@@ -8,7 +8,7 @@
 
 import UIKit.NSAttributedString
 
-public typealias AttributeResolver = (inout Attributes) -> Void
+public typealias AttributeResolver = (Attributes) -> Void
 
 extension NSAttributedString {
     
@@ -32,8 +32,8 @@ extension NSAttributedString {
     }
     
     public convenience init(string: String, resolver: AttributeResolver? = nil) {
-        var attributes = Attributes()
-        resolver?(&attributes)
+        let attributes = Attributes()
+        resolver?(attributes)
         self.init(string: string, attributes: attributes.rawAttributes)
     }
 }
@@ -43,8 +43,8 @@ public extension NSMutableAttributedString {
     
     @discardableResult
     public func add(string: String, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
-        var attributes = existingOrNewAttributes
-        resolver?(&attributes)
+        let attributes = existingOrNewAttributes
+        resolver?(attributes)
         return add(string: string, with: attributes)
     }
     
@@ -54,16 +54,16 @@ public extension NSMutableAttributedString {
         return self
     }
     
-    public func resolveAttributes(inRange range: NSRange, resolver: AttributeResolver) {
-        var attributes = existingOrNewAttributes
-        resolver(&attributes)
+    public func resolveAttributes(in range: NSRange, resolver: AttributeResolver) {
+        let attributes = existingOrNewAttributes
+        resolver(attributes)
         addAttributes(attributes.rawAttributes, range: range)
     }
     
     @discardableResult
     public func add(image: UIImage, bounds: CGRect = .zero, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
-        var attributes = existingOrNewAttributes
-        resolver?(&attributes)
+        let attributes = existingOrNewAttributes
+        resolver?(attributes)
         let attachment = NSTextAttachment()
         attachment.image = image
         attachment.bounds = bounds
