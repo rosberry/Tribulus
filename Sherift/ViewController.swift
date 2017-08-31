@@ -13,7 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let attributedString = NSMutableAttributedString()
+        let attributedString = NSMutableAttributedString(string: "Hello") { attributes in
+            
+        }
+        attributedString.resolveAttributes(inRange: NSRange(location: 0, length: 0)) { attributes in
+            attributes.alignment = .left
+        }
     }
 }
 
