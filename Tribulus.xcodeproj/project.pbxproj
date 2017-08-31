@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A3BCD791F5802A0004E77B7 /* Tribulus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BCD6F1F5802A0004E77B7 /* Tribulus.framework */; };
+		0A3BCD7E1F5802A0004E77B7 /* TribulusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCD7D1F5802A0004E77B7 /* TribulusTests.swift */; };
+		0A3BCDA11F58036F004E77B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3BCD9F1F58036F004E77B7 /* Info.plist */; };
+		0A3BCDA21F58036F004E77B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3BCD9F1F58036F004E77B7 /* Info.plist */; };
+		0A3BCDAB1F580439004E77B7 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA41F580439004E77B7 /* Attributes.swift */; };
+		0A3BCDAC1F580439004E77B7 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA41F580439004E77B7 /* Attributes.swift */; };
+		0A3BCDAD1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */; };
+		0A3BCDAE1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */; };
+		0A3BCDAF1F580439004E77B7 /* Attributes+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */; };
+		0A3BCDB01F580439004E77B7 /* Attributes+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */; };
+		0A3BCDB11F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */; };
+		0A3BCDB21F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */; };
+		0A3BCDB51F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */; };
+		0A3BCDB61F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */; };
+		0A3BCDB71F580439004E77B7 /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */; };
+		0A3BCDB81F580439004E77B7 /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */; };
+		0A3BCDB91F58051B004E77B7 /* Tribulus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BCDA01F58036F004E77B7 /* Tribulus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A3BCD7A1F5802A0004E77B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A3BCD661F5802A0004E77B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A3BCD6E1F5802A0004E77B7;
+			remoteInfo = Tribulus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A3BCD6F1F5802A0004E77B7 /* Tribulus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tribulus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3BCD781F5802A0004E77B7 /* TribulusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TribulusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3BCD7D1F5802A0004E77B7 /* TribulusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TribulusTests.swift; sourceTree = "<group>"; };
+		0A3BCD7F1F5802A0004E77B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A3BCD9F1F58036F004E77B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A3BCDA01F58036F004E77B7 /* Tribulus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tribulus.h; sourceTree = "<group>"; };
+		0A3BCDA41F580439004E77B7 /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attributes+Paragraph.swift"; sourceTree = "<group>"; };
+		0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Attributes+Raw.swift"; sourceTree = "<group>"; };
+		0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attributes.swift"; sourceTree = "<group>"; };
+		0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSParagraphStyle+Map.swift"; sourceTree = "<group>"; };
+		0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextEffect+Raw.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A3BCD6B1F5802A0004E77B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A3BCD751F5802A0004E77B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCD791F5802A0004E77B7 /* Tribulus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A3BCD651F5802A0004E77B7 = {
+			isa = PBXGroup;
+			children = (
+				0A3BCD9E1F58036F004E77B7 /* Sources */,
+				0A3BCD7C1F5802A0004E77B7 /* TribulusTests */,
+				0A3BCD701F5802A0004E77B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A3BCD701F5802A0004E77B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A3BCD6F1F5802A0004E77B7 /* Tribulus.framework */,
+				0A3BCD781F5802A0004E77B7 /* TribulusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A3BCD7C1F5802A0004E77B7 /* TribulusTests */ = {
+			isa = PBXGroup;
+			children = (
+				0A3BCD7D1F5802A0004E77B7 /* TribulusTests.swift */,
+				0A3BCD7F1F5802A0004E77B7 /* Info.plist */,
+			);
+			path = TribulusTests;
+			sourceTree = "<group>";
+		};
+		0A3BCD9E1F58036F004E77B7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0A3BCD9F1F58036F004E77B7 /* Info.plist */,
+				0A3BCDA01F58036F004E77B7 /* Tribulus.h */,
+				0A3BCDA41F580439004E77B7 /* Attributes.swift */,
+				0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */,
+				0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */,
+				0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */,
+				0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */,
+				0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0A3BCD6C1F5802A0004E77B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCDB91F58051B004E77B7 /* Tribulus.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0A3BCD6E1F5802A0004E77B7 /* Tribulus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A3BCD831F5802A0004E77B7 /* Build configuration list for PBXNativeTarget "Tribulus" */;
+			buildPhases = (
+				0A3BCD6A1F5802A0004E77B7 /* Sources */,
+				0A3BCD6B1F5802A0004E77B7 /* Frameworks */,
+				0A3BCD6C1F5802A0004E77B7 /* Headers */,
+				0A3BCD6D1F5802A0004E77B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tribulus;
+			productName = Tribulus;
+			productReference = 0A3BCD6F1F5802A0004E77B7 /* Tribulus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0A3BCD771F5802A0004E77B7 /* TribulusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A3BCD861F5802A0004E77B7 /* Build configuration list for PBXNativeTarget "TribulusTests" */;
+			buildPhases = (
+				0A3BCD741F5802A0004E77B7 /* Sources */,
+				0A3BCD751F5802A0004E77B7 /* Frameworks */,
+				0A3BCD761F5802A0004E77B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A3BCD7B1F5802A0004E77B7 /* PBXTargetDependency */,
+			);
+			name = TribulusTests;
+			productName = TribulusTests;
+			productReference = 0A3BCD781F5802A0004E77B7 /* TribulusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A3BCD661F5802A0004E77B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Rosberry;
+				TargetAttributes = {
+					0A3BCD6E1F5802A0004E77B7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = GPVA8JVMU3;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					0A3BCD771F5802A0004E77B7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = GPVA8JVMU3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0A3BCD691F5802A0004E77B7 /* Build configuration list for PBXProject "Tribulus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0A3BCD651F5802A0004E77B7;
+			productRefGroup = 0A3BCD701F5802A0004E77B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A3BCD6E1F5802A0004E77B7 /* Tribulus */,
+				0A3BCD771F5802A0004E77B7 /* TribulusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A3BCD6D1F5802A0004E77B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCDA11F58036F004E77B7 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A3BCD761F5802A0004E77B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCDA21F58036F004E77B7 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A3BCD6A1F5802A0004E77B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCDB51F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */,
+				0A3BCDB11F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */,
+				0A3BCDAB1F580439004E77B7 /* Attributes.swift in Sources */,
+				0A3BCDAD1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */,
+				0A3BCDAF1F580439004E77B7 /* Attributes+Raw.swift in Sources */,
+				0A3BCDB71F580439004E77B7 /* TextEffect+Raw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A3BCD741F5802A0004E77B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3BCDAC1F580439004E77B7 /* Attributes.swift in Sources */,
+				0A3BCDB21F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */,
+				0A3BCD7E1F5802A0004E77B7 /* TribulusTests.swift in Sources */,
+				0A3BCDB61F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */,
+				0A3BCDAE1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */,
+				0A3BCDB81F580439004E77B7 /* TextEffect+Raw.swift in Sources */,
+				0A3BCDB01F580439004E77B7 /* Attributes+Raw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A3BCD7B1F5802A0004E77B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A3BCD6E1F5802A0004E77B7 /* Tribulus */;
+			targetProxy = 0A3BCD7A1F5802A0004E77B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A3BCD811F5802A0004E77B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A3BCD821F5802A0004E77B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A3BCD841F5802A0004E77B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.Tribulus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0A3BCD851F5802A0004E77B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.Tribulus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0A3BCD871F5802A0004E77B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				INFOPLIST_FILE = TribulusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.TribulusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0A3BCD881F5802A0004E77B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GPVA8JVMU3;
+				INFOPLIST_FILE = TribulusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.TribulusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A3BCD691F5802A0004E77B7 /* Build configuration list for PBXProject "Tribulus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3BCD811F5802A0004E77B7 /* Debug */,
+				0A3BCD821F5802A0004E77B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A3BCD831F5802A0004E77B7 /* Build configuration list for PBXNativeTarget "Tribulus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3BCD841F5802A0004E77B7 /* Debug */,
+				0A3BCD851F5802A0004E77B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0A3BCD861F5802A0004E77B7 /* Build configuration list for PBXNativeTarget "TribulusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A3BCD871F5802A0004E77B7 /* Debug */,
+				0A3BCD881F5802A0004E77B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A3BCD661F5802A0004E77B7 /* Project object */;
+}
