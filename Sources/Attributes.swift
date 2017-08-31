@@ -21,15 +21,13 @@ public class Attributes {
         case horizontal
     }
     
-    public var alignment: NSTextAlignment?
     public var backgroundColor: UIColor?
-    public var baseline: Float?
+    public var baselineOffset: Float?
     public var color: UIColor?
     public var direction: GlyphDirection?
     public var expansion: Float?
     public var font: UIFont?
     public var kern: Float?
-    public var lineSpacing: Float?
     public var ligature: Bool?
     public var obliqueness: Float?
     public var strikethroughStyle: NSUnderlineStyle?
@@ -42,17 +40,19 @@ public class Attributes {
     public var URL: NSURL?
     
     // Paragraph properties
+    public var alignment: NSTextAlignment?
+    public var allowsTighteningForTruncation: Bool?
+    public var firstLineHeadIndent: Float?
+    public var headIndent: Float?
+    public var hyphenationFactor: Float?
+    public var lineSpacing: Float?
     public var lineBreakMode: NSLineBreakMode?
     public var lineHeightMultiplier: Float?
+    public var maximumLineHeight: Float?
+    public var minimumLineHeight: Float?
     public var paragraphSpacingAfter: Float?
     public var paragraphSpacingBefore: Float?
-    public var headIndent: Float?
     public var tailIndent: Float?
-    public var firstLineHeadIndent: Float?
-    public var minimumLineHeight: Float?
-    public var maximumLineHeight: Float?
-    public var hyphenationFactor: Float?
-    public var allowsTighteningForTruncation: Bool?
     
     init() {}
 }

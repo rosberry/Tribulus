@@ -13,7 +13,7 @@ extension Attributes {
     var rawAttributes: RawAttributes {
         var result: RawAttributes = [:]
         result[NSBackgroundColorAttributeName] = backgroundColor
-        result[NSBaselineOffsetAttributeName] = baseline
+        result[NSBaselineOffsetAttributeName] = baselineOffset
         result[NSForegroundColorAttributeName] = color
         result[NSVerticalGlyphFormAttributeName] = direction?.rawValue
         result[NSExpansionAttributeName] = expansion
@@ -42,7 +42,7 @@ extension Attributes {
         self.init()
         
         backgroundColor = attributes[NSBackgroundColorAttributeName] as? UIColor
-        baseline = attributes[NSBaselineOffsetAttributeName] as? Float
+        baselineOffset = attributes[NSBaselineOffsetAttributeName] as? Float
         color = attributes[NSForegroundColorAttributeName] as? UIColor
         if let direction = attributes[NSVerticalGlyphFormAttributeName] as? Int {
             self.direction = GlyphDirection(rawValue: direction)

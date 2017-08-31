@@ -31,9 +31,9 @@ extension NSAttributedString {
         return NSRange(location: 0, length: length)
     }
     
-    public convenience init(string: String, resolver: AttributeResolver? = nil) {
+    public convenience init(string: String, resolver: AttributeResolver) {
         let attributes = Attributes()
-        resolver?(attributes)
+        resolver(attributes)
         self.init(string: string, attributes: attributes.rawAttributes)
     }
 }
@@ -42,13 +42,13 @@ extension NSAttributedString {
 public extension NSMutableAttributedString {
     
     @discardableResult
-    public func add(string: String, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
+    public func append(string: String, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
         let attributes = existingOrNewAttributes
         resolver?(attributes)
-        return add(string: string, with: attributes)
+        return append(string: string, with: attributes)
     }
     
-    func add(string: String, with attributes: Attributes) -> NSMutableAttributedString {
+    func append(string: String, with attributes: Attributes) -> NSMutableAttributedString {
         let attributedString = NSAttributedString(string: string, attributes: attributes.rawAttributes)
         append(attributedString)
         return self
@@ -61,7 +61,7 @@ public extension NSMutableAttributedString {
     }
     
     @discardableResult
-    public func add(image: UIImage, bounds: CGRect = .zero, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
+    public func append(image: UIImage, bounds: CGRect = .zero, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
         let attributes = existingOrNewAttributes
         resolver?(attributes)
         let attachment = NSTextAttachment()

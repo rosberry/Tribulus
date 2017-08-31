@@ -12,18 +12,13 @@
 		0A3BCDA11F58036F004E77B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3BCD9F1F58036F004E77B7 /* Info.plist */; };
 		0A3BCDA21F58036F004E77B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3BCD9F1F58036F004E77B7 /* Info.plist */; };
 		0A3BCDAB1F580439004E77B7 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA41F580439004E77B7 /* Attributes.swift */; };
-		0A3BCDAC1F580439004E77B7 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA41F580439004E77B7 /* Attributes.swift */; };
 		0A3BCDAD1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */; };
-		0A3BCDAE1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA51F580439004E77B7 /* Attributes+Paragraph.swift */; };
 		0A3BCDAF1F580439004E77B7 /* Attributes+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */; };
-		0A3BCDB01F580439004E77B7 /* Attributes+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA61F580439004E77B7 /* Attributes+Raw.swift */; };
 		0A3BCDB11F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */; };
-		0A3BCDB21F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */; };
 		0A3BCDB51F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */; };
-		0A3BCDB61F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */; };
 		0A3BCDB71F580439004E77B7 /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */; };
-		0A3BCDB81F580439004E77B7 /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */; };
 		0A3BCDB91F58051B004E77B7 /* Tribulus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BCDA01F58036F004E77B7 /* Tribulus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A3BCDDF1F580D54004E77B7 /* NSAttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +44,7 @@
 		0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSParagraphStyle+Map.swift"; sourceTree = "<group>"; };
 		0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextEffect+Raw.swift"; sourceTree = "<group>"; };
+		0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3BCD7D1F5802A0004E77B7 /* TribulusTests.swift */,
+				0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */,
 				0A3BCD7F1F5802A0004E77B7 /* Info.plist */,
 			);
 			path = TribulusTests;
@@ -240,13 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3BCDAC1F580439004E77B7 /* Attributes.swift in Sources */,
-				0A3BCDB21F580439004E77B7 /* NSAttributedString+Attributes.swift in Sources */,
 				0A3BCD7E1F5802A0004E77B7 /* TribulusTests.swift in Sources */,
-				0A3BCDB61F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */,
-				0A3BCDAE1F580439004E77B7 /* Attributes+Paragraph.swift in Sources */,
-				0A3BCDB81F580439004E77B7 /* TextEffect+Raw.swift in Sources */,
-				0A3BCDB01F580439004E77B7 /* Attributes+Raw.swift in Sources */,
+				0A3BCDDF1F580D54004E77B7 /* NSAttributedStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +440,7 @@
 				0A3BCD851F5802A0004E77B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A3BCD861F5802A0004E77B7 /* Build configuration list for PBXNativeTarget "TribulusTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +449,7 @@
 				0A3BCD881F5802A0004E77B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
