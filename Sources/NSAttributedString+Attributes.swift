@@ -42,9 +42,9 @@ extension NSAttributedString {
 public extension NSMutableAttributedString {
     
     @discardableResult
-    public func append(string: String, resolver: AttributeResolver? = nil) -> NSMutableAttributedString {
+    public func append(string: String, resolver: AttributeResolver) -> NSMutableAttributedString {
         let attributes = existingOrNewAttributes
-        resolver?(attributes)
+        resolver(attributes)
         return append(string: string, with: attributes)
     }
     
@@ -54,10 +54,12 @@ public extension NSMutableAttributedString {
         return self
     }
     
-    public func resolveAttributes(in range: NSRange, resolver: AttributeResolver) {
+    @discardableResult
+    public func resolveAttributes(in range: NSRange, resolver: AttributeResolver) -> NSMutableAttributedString {
         let attributes = existingOrNewAttributes
         resolver(attributes)
         addAttributes(attributes.rawAttributes, range: range)
+        return self
     }
     
     @discardableResult

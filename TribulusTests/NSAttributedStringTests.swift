@@ -9,22 +9,18 @@
 import XCTest
 @testable import Tribulus
 
-enum TestCaseError: Error {
-    case unexpectedNil
+extension NSRange: Hashable {
+    public var hashValue: Int {
+        return self.location ^ self.length
+    }
 }
 
-//    // Paragraph properties
-//    public var lineBreakMode: NSLineBreakMode?
-//    public var lineHeightMultiplier: Float?
-//    public var paragraphSpacingAfter: Float?
-//    public var paragraphSpacingBefore: Float?
-//    public var headIndent: Float?
-//    public var tailIndent: Float?
-//    public var firstLineHeadIndent: Float?
-//    public var minimumLineHeight: Float?
-//    public var maximumLineHeight: Float?
-//    public var hyphenationFactor: Float?
-//    public var allowsTighteningForTruncation: Bool?
+extension NSRange: Equatable {
+    static public func ==(lhs: NSRange, rhs: NSRange) -> Bool {
+        return lhs.location == rhs.location && lhs.length == rhs.length
+    }
+}
+
 
 class NSAttributedStringTests: XCTestCase {
     
@@ -65,47 +61,34 @@ class NSAttributedStringTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
     func testThatBeingInitializedCorrectly() {
-        let testString = "Hello"
+        let testString = "Foo"
         
-        var testAttributes: RawAttributes = [:]
-        testAttributes[NSBackgroundColorAttributeName] = defaultAttributes.backgroundColor
-        testAttributes[NSBaselineOffsetAttributeName] = defaultAttributes.baselineOffset
-        testAttributes[NSForegroundColorAttributeName] = defaultAttributes.color
-        testAttributes[NSVerticalGlyphFormAttributeName] = defaultAttributes.direction!.rawValue
-        testAttributes[NSExpansionAttributeName] = defaultAttributes.expansion
-        testAttributes[NSFontAttributeName] = defaultAttributes.font
-        testAttributes[NSKernAttributeName] = defaultAttributes.kern
-        testAttributes[NSLigatureAttributeName] = defaultAttributes.ligature! ? 1 : 0
-        testAttributes[NSStrikethroughStyleAttributeName] = defaultAttributes.strikethroughStyle!.rawValue
-        testAttributes[NSStrikethroughColorAttributeName] = defaultAttributes.strikethroughColor
-        testAttributes[NSStrokeWidthAttributeName] = defaultAttributes.strokeWidth
-        testAttributes[NSStrokeColorAttributeName] = defaultAttributes.strokeColor
-        testAttributes[NSObliquenessAttributeName] = defaultAttributes.obliqueness
-        testAttributes[NSTextEffectAttributeName] = defaultAttributes.textEffect!.rawValue
-        testAttributes[NSUnderlineStyleAttributeName] = defaultAttributes.underlineStyle!.rawValue
-        testAttributes[NSUnderlineColorAttributeName] = defaultAttributes.underlineColor
-        testAttributes[NSLinkAttributeName] = defaultAttributes.URL
+        var expectedAttributes: RawAttributes = [:]
+        expectedAttributes[NSBackgroundColorAttributeName] = defaultAttributes.backgroundColor
+        expectedAttributes[NSBaselineOffsetAttributeName] = defaultAttributes.baselineOffset
+        expectedAttributes[NSForegroundColorAttributeName] = defaultAttributes.color
+        expectedAttributes[NSVerticalGlyphFormAttributeName] = defaultAttributes.direction!.rawValue
+        expectedAttributes[NSExpansionAttributeName] = defaultAttributes.expansion
+        expectedAttributes[NSFontAttributeName] = defaultAttributes.font
+        expectedAttributes[NSKernAttributeName] = defaultAttributes.kern
+        expectedAttributes[NSLigatureAttributeName] = defaultAttributes.ligature! ? 1 : 0
+        expectedAttributes[NSStrikethroughStyleAttributeName] = defaultAttributes.strikethroughStyle!.rawValue
+        expectedAttributes[NSStrikethroughColorAttributeName] = defaultAttributes.strikethroughColor
+        expectedAttributes[NSStrokeWidthAttributeName] = defaultAttributes.strokeWidth
+        expectedAttributes[NSStrokeColorAttributeName] = defaultAttributes.strokeColor
+        expectedAttributes[NSObliquenessAttributeName] = defaultAttributes.obliqueness
+        expectedAttributes[NSTextEffectAttributeName] = defaultAttributes.textEffect!.rawValue
+        expectedAttributes[NSUnderlineStyleAttributeName] = defaultAttributes.underlineStyle!.rawValue
+        expectedAttributes[NSUnderlineColorAttributeName] = defaultAttributes.underlineColor
+        expectedAttributes[NSLinkAttributeName] = defaultAttributes.URL
         
         let testParagraphStyle = NSMutableParagraphStyle()
         testParagraphStyle.lineBreakMode = defaultAttributes.lineBreakMode!
@@ -120,7 +103,7 @@ class NSAttributedStringTests: XCTestCase {
         testParagraphStyle.hyphenationFactor = defaultAttributes.hyphenationFactor!
         testParagraphStyle.allowsDefaultTighteningForTruncation = defaultAttributes.allowsTighteningForTruncation!
         
-        testAttributes[NSParagraphStyleAttributeName] = testParagraphStyle
+        expectedAttributes[NSParagraphStyleAttributeName] = testParagraphStyle
         
         let attributedString = NSAttributedString(string: testString) {
             $0.backgroundColor = defaultAttributes.backgroundColor
@@ -156,28 +139,57 @@ class NSAttributedStringTests: XCTestCase {
         XCTAssertEqual(testString, attributedString.string)
         
         if let existingAttributes = attributedString.existingAttributes {
-            XCTAssertEqual(existingAttributes[NSBackgroundColorAttributeName] as! UIColor, testAttributes[NSBackgroundColorAttributeName] as! UIColor)
-            XCTAssertEqual(existingAttributes[NSBaselineOffsetAttributeName] as! Float, testAttributes[NSBaselineOffsetAttributeName] as! Float)
-            XCTAssertEqual(existingAttributes[NSForegroundColorAttributeName] as! UIColor, testAttributes[NSForegroundColorAttributeName] as! UIColor)
-            XCTAssertEqual(existingAttributes[NSVerticalGlyphFormAttributeName] as! Int, testAttributes[NSVerticalGlyphFormAttributeName] as! Int)
-            XCTAssertEqual(existingAttributes[NSExpansionAttributeName] as! Float, testAttributes[NSExpansionAttributeName] as! Float)
-            XCTAssertEqual(existingAttributes[NSFontAttributeName] as! UIFont, testAttributes[NSFontAttributeName] as! UIFont)
-            XCTAssertEqual(existingAttributes[NSKernAttributeName] as! Float, testAttributes[NSKernAttributeName] as! Float)
-            XCTAssertEqual(existingAttributes[NSLigatureAttributeName] as! Int, testAttributes[NSLigatureAttributeName] as! Int)
-            XCTAssertEqual(existingAttributes[NSStrikethroughStyleAttributeName] as! Int, testAttributes[NSStrikethroughStyleAttributeName] as! Int)
-            XCTAssertEqual(existingAttributes[NSStrikethroughColorAttributeName] as! UIColor, testAttributes[NSStrikethroughColorAttributeName] as! UIColor)
-            XCTAssertEqual(existingAttributes[NSStrokeWidthAttributeName] as! Float, testAttributes[NSStrokeWidthAttributeName] as! Float)
-            XCTAssertEqual(existingAttributes[NSStrokeColorAttributeName] as! UIColor, testAttributes[NSStrokeColorAttributeName] as! UIColor)
-            XCTAssertEqual(existingAttributes[NSObliquenessAttributeName] as! Float, testAttributes[NSObliquenessAttributeName] as! Float)
-            XCTAssertEqual(existingAttributes[NSTextEffectAttributeName] as! String, testAttributes[NSTextEffectAttributeName] as! String)
-            XCTAssertEqual(existingAttributes[NSUnderlineStyleAttributeName] as! Int, testAttributes[NSUnderlineStyleAttributeName] as! Int)
-            XCTAssertEqual(existingAttributes[NSUnderlineColorAttributeName] as! UIColor, testAttributes[NSUnderlineColorAttributeName] as! UIColor)
-            XCTAssertEqual(existingAttributes[NSLinkAttributeName] as! URL, testAttributes[NSLinkAttributeName] as! URL)
-            
-            XCTAssertEqual(existingAttributes[NSParagraphStyleAttributeName] as! NSParagraphStyle, testAttributes[NSParagraphStyleAttributeName] as! NSParagraphStyle)
+            XCTAssertEqual(existingAttributes[NSBackgroundColorAttributeName] as! UIColor, expectedAttributes[NSBackgroundColorAttributeName] as! UIColor)
+            XCTAssertEqual(existingAttributes[NSBaselineOffsetAttributeName] as! Float, expectedAttributes[NSBaselineOffsetAttributeName] as! Float)
+            XCTAssertEqual(existingAttributes[NSForegroundColorAttributeName] as! UIColor, expectedAttributes[NSForegroundColorAttributeName] as! UIColor)
+            XCTAssertEqual(existingAttributes[NSVerticalGlyphFormAttributeName] as! Int, expectedAttributes[NSVerticalGlyphFormAttributeName] as! Int)
+            XCTAssertEqual(existingAttributes[NSExpansionAttributeName] as! Float, expectedAttributes[NSExpansionAttributeName] as! Float)
+            XCTAssertEqual(existingAttributes[NSFontAttributeName] as! UIFont, expectedAttributes[NSFontAttributeName] as! UIFont)
+            XCTAssertEqual(existingAttributes[NSKernAttributeName] as! Float, expectedAttributes[NSKernAttributeName] as! Float)
+            XCTAssertEqual(existingAttributes[NSLigatureAttributeName] as! Int, expectedAttributes[NSLigatureAttributeName] as! Int)
+            XCTAssertEqual(existingAttributes[NSStrikethroughStyleAttributeName] as! Int, expectedAttributes[NSStrikethroughStyleAttributeName] as! Int)
+            XCTAssertEqual(existingAttributes[NSStrikethroughColorAttributeName] as! UIColor, expectedAttributes[NSStrikethroughColorAttributeName] as! UIColor)
+            XCTAssertEqual(existingAttributes[NSStrokeWidthAttributeName] as! Float, expectedAttributes[NSStrokeWidthAttributeName] as! Float)
+            XCTAssertEqual(existingAttributes[NSStrokeColorAttributeName] as! UIColor, expectedAttributes[NSStrokeColorAttributeName] as! UIColor)
+            XCTAssertEqual(existingAttributes[NSObliquenessAttributeName] as! Float, expectedAttributes[NSObliquenessAttributeName] as! Float)
+            XCTAssertEqual(existingAttributes[NSTextEffectAttributeName] as! String, expectedAttributes[NSTextEffectAttributeName] as! String)
+            XCTAssertEqual(existingAttributes[NSUnderlineStyleAttributeName] as! Int, expectedAttributes[NSUnderlineStyleAttributeName] as! Int)
+            XCTAssertEqual(existingAttributes[NSUnderlineColorAttributeName] as! UIColor, expectedAttributes[NSUnderlineColorAttributeName] as! UIColor)
+            XCTAssertEqual(existingAttributes[NSLinkAttributeName] as! URL, expectedAttributes[NSLinkAttributeName] as! URL)
+            XCTAssertEqual(existingAttributes[NSParagraphStyleAttributeName] as! NSParagraphStyle, expectedAttributes[NSParagraphStyleAttributeName] as! NSParagraphStyle)
         }
         else {
             XCTAssertNotNil(attributedString.existingAttributes)
+        }
+    }
+    
+    func testThatCorrectlyAppendsString() {
+        let testString = "Foo"
+        let stringToAppend = " Bar"
+        let expectedString = "Foo Bar"
+        let attributedString = NSMutableAttributedString(string: testString)
+        let expectedAttributes = [NSForegroundColorAttributeName: defaultAttributes.color!]
+        attributedString.append(string: stringToAppend) {
+            $0.color = defaultAttributes.color
+        }
+        XCTAssertEqual(attributedString.string, expectedString)
+        XCTAssertEqual(attributedString.existingAttributes![NSForegroundColorAttributeName] as? UIColor, expectedAttributes[NSForegroundColorAttributeName])
+    }
+    
+    func testThatCorrectlyResolvesAttributes() {
+        let testString = "Foo"
+        let attributedString = NSMutableAttributedString(string: testString)
+        
+        let colors: [NSRange: UIColor] = [NSRange(location: 0, length: 1): .red,
+                                          NSRange(location: 1, length: 1): .green,
+                                          NSRange(location: 2, length: 1): .blue]
+        colors.forEach { (range, color) in
+            attributedString.resolveAttributes(in: range) { $0.color = color }
+        }
+        attributedString.enumerateAttribute(NSForegroundColorAttributeName,
+                                            in: attributedString.fullRange,
+                                            options: []) { (value, range, stop) in
+            XCTAssertEqual(value as? UIColor, colors[range])
         }
     }
 }
