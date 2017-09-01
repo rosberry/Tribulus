@@ -32,12 +32,12 @@ public class Attributes {
     public var obliqueness: Float?
     public var strikethroughStyle: NSUnderlineStyle?
     public var strikethroughColor: UIColor?
-    public var strokeWidth: CGFloat?
+    public var strokeWidth: Float?
     public var strokeColor: UIColor?
     public var textEffect: TextEffect?
     public var underlineStyle: NSUnderlineStyle?
     public var underlineColor: UIColor?
-    public var URL: NSURL?
+    public var URL: URL?
     
     // Paragraph properties
     public var alignment: NSTextAlignment?

@@ -58,7 +58,7 @@ extension Attributes {
             self.strikethroughStyle = NSUnderlineStyle(rawValue: strikethroughStyle)
         }
         strikethroughColor = attributes[NSStrikethroughColorAttributeName] as? UIColor
-        strokeWidth = attributes[NSStrokeWidthAttributeName] as? CGFloat
+        strokeWidth = attributes[NSStrokeWidthAttributeName] as? Float
         strokeColor = attributes[NSStrokeColorAttributeName] as? UIColor
         if let textEffect = attributes[NSTextEffectAttributeName] as? String {
             self.textEffect = TextEffect(rawValue: textEffect)
@@ -67,7 +67,7 @@ extension Attributes {
             self.underlineStyle = NSUnderlineStyle(rawValue: underlineStyle)
         }
         underlineColor = attributes[NSUnderlineColorAttributeName] as? UIColor
-        URL = attributes[NSLinkAttributeName] as? NSURL
+        URL = attributes[NSLinkAttributeName] as? URL
         
         if let paragraph = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle {
             alignment = paragraph.mapAttribute { $0.alignment }
