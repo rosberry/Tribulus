@@ -10,7 +10,7 @@ import UIKit.NSText
 
 public typealias RawAttributes = [String: Any]
 
-public class Attributes {
+public struct Attributes {
     
     public enum TextEffect: String {
         case letterpress
@@ -53,8 +53,6 @@ public class Attributes {
     public var paragraphSpacingAfter: Float?
     public var paragraphSpacingBefore: Float?
     public var tailIndent: Float?
-    
-    init() {}
 }
 
 
@@ -83,7 +81,7 @@ extension Attributes {
         get { return currentFont.fontDescriptor.symbolicTraits.contains(.traitItalic) }
     }
     
-    private func setSymbolicTraits(_ traits: UIFontDescriptorSymbolicTraits, enabled: Bool) {
+    private mutating func setSymbolicTraits(_ traits: UIFontDescriptorSymbolicTraits, enabled: Bool) {
         let font = currentFont
         let descriptor = font.fontDescriptor
         var currentTraits = descriptor.symbolicTraits

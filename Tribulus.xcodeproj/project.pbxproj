@@ -18,7 +18,6 @@
 		0A3BCDB51F580439004E77B7 /* NSParagraphStyle+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */; };
 		0A3BCDB71F580439004E77B7 /* TextEffect+Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */; };
 		0A3BCDB91F58051B004E77B7 /* Tribulus.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BCDA01F58036F004E77B7 /* Tribulus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A3BCDDF1F580D54004E77B7 /* NSAttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		0A3BCDA71F580439004E77B7 /* NSAttributedString+Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		0A3BCDA91F580439004E77B7 /* NSParagraphStyle+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSParagraphStyle+Map.swift"; sourceTree = "<group>"; };
 		0A3BCDAA1F580439004E77B7 /* TextEffect+Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextEffect+Raw.swift"; sourceTree = "<group>"; };
-		0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				0A3BCD7D1F5802A0004E77B7 /* TribulusTests.swift */,
-				0A3BCDDE1F580D54004E77B7 /* NSAttributedStringTests.swift */,
 				0A3BCD7F1F5802A0004E77B7 /* Info.plist */,
 			);
 			path = TribulusTests;
@@ -238,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BCD7E1F5802A0004E77B7 /* TribulusTests.swift in Sources */,
-				0A3BCDDF1F580D54004E77B7 /* NSAttributedStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
