@@ -10,7 +10,7 @@ import UIKit.NSText
 
 public typealias RawAttributes = [String: Any]
 
-public struct Attributes {
+public class Attributes {
     
     public enum TextEffect: String {
         case letterpress
@@ -81,7 +81,7 @@ extension Attributes {
         get { return currentFont.fontDescriptor.symbolicTraits.contains(.traitItalic) }
     }
     
-    private mutating func setSymbolicTraits(_ traits: UIFontDescriptorSymbolicTraits, enabled: Bool) {
+    private func setSymbolicTraits(_ traits: UIFontDescriptorSymbolicTraits, enabled: Bool) {
         let font = currentFont
         let descriptor = font.fontDescriptor
         var currentTraits = descriptor.symbolicTraits

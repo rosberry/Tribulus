@@ -38,7 +38,7 @@ extension Attributes {
         return result
     }
     
-    init(rawAttributes attributes: RawAttributes) {
+    convenience init(rawAttributes attributes: RawAttributes) {
         self.init()
         
         backgroundColor = attributes[NSBackgroundColorAttributeName] as? UIColor

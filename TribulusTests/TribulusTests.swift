@@ -24,37 +24,42 @@ extension NSRange: Equatable {
 class TribulusTests: XCTestCase {
     
     var defaultAttributes: Attributes {
-        let attributes = Attributes(
-            backgroundColor: .red,
-            baselineOffset: 10.1,
-            color: .green,
-            direction: .vertical,
-            expansion: 11.2, font:
-            .systemFont(ofSize: 10, weight: UIFontWeightBold),
-            kern: 0.8,
-            ligature: true,
-            obliqueness: 14.5,
-            strikethroughStyle: .patternDashDot,
-            strikethroughColor: .brown,
-            strokeWidth: 2.1,
-            strokeColor: .cyan,
-            textEffect: .letterpress,
-            underlineStyle: .patternSolid,
-            underlineColor: .magenta,
-            URL: URL(string: "test.com"),
-            alignment: .center,
-            allowsTighteningForTruncation: true,
-            firstLineHeadIndent: 6.4,
-            headIndent: 8.7,
-            hyphenationFactor: 3.4,
-            lineSpacing: 4.6,
-            lineBreakMode: .byClipping,
-            lineHeightMultiplier: 2.5,
-            maximumLineHeight: 19.5,
-            minimumLineHeight: 16.2,
-            paragraphSpacingAfter: 12.6,
-            paragraphSpacingBefore: 10.3,
-            tailIndent: 7.8)
+        
+        var rawAttributes: RawAttributes = [:]
+        rawAttributes[NSBackgroundColorAttributeName] = UIColor.red
+        rawAttributes[NSBaselineOffsetAttributeName] = NSNumber(floatLiteral: 10.1)
+        rawAttributes[NSForegroundColorAttributeName] = UIColor.green
+        rawAttributes[NSVerticalGlyphFormAttributeName] = 1
+        rawAttributes[NSExpansionAttributeName] = NSNumber(floatLiteral: 11.1)
+        rawAttributes[NSFontAttributeName] = UIFont.systemFont(ofSize: 10, weight: UIFontWeightBold)
+        rawAttributes[NSKernAttributeName] = NSNumber(floatLiteral: 0.8)
+        rawAttributes[NSLigatureAttributeName] = 1
+        rawAttributes[NSStrikethroughStyleAttributeName] = NSUnderlineStyle.patternDashDot.rawValue
+        rawAttributes[NSStrikethroughColorAttributeName] = UIColor.cyan
+        rawAttributes[NSStrokeWidthAttributeName] = NSNumber(floatLiteral: 2.1)
+        rawAttributes[NSStrokeColorAttributeName] = UIColor.blue
+        rawAttributes[NSObliquenessAttributeName] = NSNumber(floatLiteral: 14.5)
+        rawAttributes[NSTextEffectAttributeName] = NSTextEffectLetterpressStyle
+        rawAttributes[NSUnderlineStyleAttributeName] = NSUnderlineStyle.patternSolid.rawValue
+        rawAttributes[NSUnderlineColorAttributeName] = UIColor.brown
+        rawAttributes[NSLinkAttributeName] = URL(string: "test.com")
+        
+        let testParagraphStyle = NSMutableParagraphStyle()
+        testParagraphStyle.lineBreakMode = NSLineBreakMode.byClipping
+        testParagraphStyle.lineHeightMultiple = 2.5
+        testParagraphStyle.paragraphSpacing = 12.6
+        testParagraphStyle.paragraphSpacingBefore = 10.3
+        testParagraphStyle.headIndent = 8.7
+        testParagraphStyle.tailIndent = 7.8
+        testParagraphStyle.firstLineHeadIndent = 6.4
+        testParagraphStyle.minimumLineHeight = 19.5
+        testParagraphStyle.maximumLineHeight = 16.2
+        testParagraphStyle.hyphenationFactor = 3.4
+        testParagraphStyle.allowsDefaultTighteningForTruncation = true
+        
+        rawAttributes[NSParagraphStyleAttributeName] = testParagraphStyle
+        
+        let attributes = Attributes(rawAttributes: rawAttributes)
         return attributes
     }
     
@@ -161,18 +166,67 @@ class TribulusTests: XCTestCase {
             XCTAssertNotNil(attributedString.existingAttributes)
         }
     }
-
+    
     func testThatCorrectlyAppendsString() {
         let testString = "Foo"
         let stringToAppend = " Bar"
         let expectedString = "Foo Bar"
-        let attributedString = NSMutableAttributedString(string: testString)
-        let expectedAttributes = [NSForegroundColorAttributeName: defaultAttributes.color!]
-        attributedString.append(string: stringToAppend) { (attributes: inout Attributes) in
-            attributes.color = defaultAttributes.color
-        }
+        let attributedString = NSMutableAttributedString(string: testString) {
+                $0.color = .red
+            }
+            .append(string: stringToAppend) {
+                $0.color = .green
+            }
         XCTAssertEqual(attributedString.string, expectedString)
-        XCTAssertEqual(attributedString.existingAttributes![NSForegroundColorAttributeName] as? UIColor, expectedAttributes[NSForegroundColorAttributeName])
+        let firstColor = attributedString.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+        let secondColor = attributedString.attribute(NSForegroundColorAttributeName, at: 3, effectiveRange: nil) as? UIColor
+        XCTAssertEqual(firstColor, UIColor.red)
+        XCTAssertEqual(secondColor, UIColor.green)
+    }
+    
+    func testThatCorrectlyInsertsString() {
+        let testString = "Foo  Baz"
+        let stringToAppend = "Bar"
+        let expectedString = "Foo Bar Baz"
+        let attributedString = NSMutableAttributedString(string: testString) {
+                $0.color = .red
+            }
+            .insert(string: stringToAppend, at: 4) {
+                $0.color = .green
+            }
+        XCTAssertEqual(attributedString.string, expectedString)
+        let firstColor = attributedString.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+        let secondColor = attributedString.attribute(NSForegroundColorAttributeName, at: 4, effectiveRange: nil) as? UIColor
+        let thirdColor = attributedString.attribute(NSForegroundColorAttributeName, at: 7, effectiveRange: nil) as? UIColor
+        XCTAssertEqual(firstColor, UIColor.red)
+        XCTAssertEqual(secondColor, UIColor.green)
+        XCTAssertEqual(thirdColor, UIColor.red)
+    }
+    
+    
+    func testThatCorrectlyAppendsImage() {
+        let testString = "Foo"
+        let attributedString = NSMutableAttributedString(string: testString)
+        let testImage = UIImage()
+        let testBounds = CGRect(x: 10, y: 20, width: 30, height: 40)
+        attributedString.append(image: testImage, bounds: testBounds)
+        let testStringRange = (attributedString.string as NSString).range(of: testString)
+        let imageLocation = testStringRange.location + testStringRange.length
+        let attachment = attributedString.attribute(NSAttachmentAttributeName, at: imageLocation, effectiveRange: nil) as! NSTextAttachment
+        XCTAssertEqual(attachment.image, testImage)
+        XCTAssertEqual(attachment.bounds, testBounds)
+    }
+    
+    func testThatCorrectlyInsertsImage() {
+        let testString = "Foo"
+        let attributedString = NSMutableAttributedString(string: testString)
+        let testImage = UIImage()
+        let testBounds = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let imageLocation = 0
+        attributedString.insert(image: testImage, bounds: testBounds, at: imageLocation)
+        let attachment = attributedString.attribute(NSAttachmentAttributeName, at: imageLocation, effectiveRange: nil) as! NSTextAttachment
+        XCTAssertEqual(attachment.image, testImage)
+        XCTAssertEqual(attachment.bounds, testBounds)
     }
     
     func testThatCorrectlyResolvesAttributes() {
@@ -186,45 +240,7 @@ class TribulusTests: XCTestCase {
         attributedString.enumerateAttribute(NSForegroundColorAttributeName,
                                             in: attributedString.fullRange,
                                             options: []) { (value, range, stop) in
-            XCTAssertEqual(value as? UIColor, colors[range])
+                                                XCTAssertEqual(value as? UIColor, colors[range])
         }
     }
-    
-//    func testThatCorrectlyAppendsImage() {
-//        let testString = "Foo"
-//        let attributedString = NSMutableAttributedString(string: testString)
-//        let testImage = UIImage()
-//        let testBounds = CGRect(x: 10, y: 20, width: 30, height: 40)
-//        attributedString.append(image: testImage, bounds: testBounds)
-//        let testStringRange = (attributedString.string as NSString).range(of: testString)
-//        let imageLocation = testStringRange.location + testStringRange.length
-//        let attachment = attributedString.attribute(NSAttachmentAttributeName, at: imageLocation, effectiveRange: nil) as! NSTextAttachment
-//        XCTAssertEqual(attachment.image, testImage)
-//        XCTAssertEqual(attachment.bounds, testBounds)
-//    }
-//    
-//    func testThatCorrectlyInsertsString() {
-//        let testString = "Bar"
-//        let stringToInsert = "Foo "
-//        let expectedString = "Foo Bar"
-//        let attributedString = NSMutableAttributedString(string: testString)
-////        let expectedAttributes = [NSForegroundColorAttributeName: defaultAttributes.color!]
-//        attributedString.insert(string: stringToInsert, at: 0) { attributes in
-//            attributes.color = defaultAttributes.color
-//        }
-//        XCTAssertEqual(attributedString.string, expectedString)
-////        XCTAssertNotEqual(attributedString.existingAttributes![NSForegroundColorAttributeName] as? UIColor, expectedAttributes[NSForegroundColorAttributeName])
-//    }
-//    
-//    func testThatCorrectlyInsertsImage() {
-//        let testString = "Foo"
-//        let attributedString = NSMutableAttributedString(string: testString)
-//        let testImage = UIImage()
-//        let testBounds = CGRect(x: 10, y: 20, width: 30, height: 40)
-//        let imageLocation = 0
-//        attributedString.insert(image: testImage, bounds: testBounds, at: imageLocation)
-//        let attachment = attributedString.attribute(NSAttachmentAttributeName, at: imageLocation, effectiveRange: nil) as! NSTextAttachment
-//        XCTAssertEqual(attachment.image, testImage)
-//        XCTAssertEqual(attachment.bounds, testBounds)
-//    }
 }
