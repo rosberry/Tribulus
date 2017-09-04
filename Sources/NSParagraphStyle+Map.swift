@@ -1,6 +1,6 @@
 //
 //  NSParagraphStyle+Compare.swift
-//  Sherift
+//  Tribulus
 //
 //  Created by Dmitry Frishbuter on 31/08/2017.
 //  Copyright © 2017 Rosberry. All rights reserved.
