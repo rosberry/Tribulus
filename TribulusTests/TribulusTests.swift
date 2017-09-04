@@ -44,20 +44,22 @@ class TribulusTests: XCTestCase {
         rawAttributes[NSUnderlineColorAttributeName] = UIColor.brown
         rawAttributes[NSLinkAttributeName] = URL(string: "test.com")
         
-        let testParagraphStyle = NSMutableParagraphStyle()
-        testParagraphStyle.lineBreakMode = NSLineBreakMode.byClipping
-        testParagraphStyle.lineHeightMultiple = 2.5
-        testParagraphStyle.paragraphSpacing = 12.6
-        testParagraphStyle.paragraphSpacingBefore = 10.3
-        testParagraphStyle.headIndent = 8.7
-        testParagraphStyle.tailIndent = 7.8
-        testParagraphStyle.firstLineHeadIndent = 6.4
-        testParagraphStyle.minimumLineHeight = 19.5
-        testParagraphStyle.maximumLineHeight = 16.2
-        testParagraphStyle.hyphenationFactor = 3.4
-        testParagraphStyle.allowsDefaultTighteningForTruncation = true
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10.2
+        paragraphStyle.alignment = .center
+        paragraphStyle.lineBreakMode = NSLineBreakMode.byClipping
+        paragraphStyle.lineHeightMultiple = 2.5
+        paragraphStyle.paragraphSpacing = 12.6
+        paragraphStyle.paragraphSpacingBefore = 10.3
+        paragraphStyle.headIndent = 8.7
+        paragraphStyle.tailIndent = 7.8
+        paragraphStyle.firstLineHeadIndent = 6.4
+        paragraphStyle.minimumLineHeight = 19.5
+        paragraphStyle.maximumLineHeight = 16.2
+        paragraphStyle.hyphenationFactor = 3.4
+        paragraphStyle.allowsDefaultTighteningForTruncation = true
         
-        rawAttributes[NSParagraphStyleAttributeName] = testParagraphStyle
+        rawAttributes[NSParagraphStyleAttributeName] = paragraphStyle
         
         let attributes = Attributes(rawAttributes: rawAttributes)
         return attributes
@@ -71,6 +73,7 @@ class TribulusTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - NSAttributedString Attributes
     
     func testThatBeingInitializedCorrectly() {
         let testString = "Foo"
@@ -95,6 +98,8 @@ class TribulusTests: XCTestCase {
         expectedAttributes[NSLinkAttributeName] = defaultAttributes.URL
         
         let testParagraphStyle = NSMutableParagraphStyle()
+        testParagraphStyle.lineSpacing = CGFloat(defaultAttributes.lineSpacing!)
+        testParagraphStyle.alignment = defaultAttributes.alignment!
         testParagraphStyle.lineBreakMode = defaultAttributes.lineBreakMode!
         testParagraphStyle.lineHeightMultiple = CGFloat(defaultAttributes.lineHeightMultiplier!)
         testParagraphStyle.paragraphSpacing = CGFloat(defaultAttributes.paragraphSpacingAfter!)
@@ -128,6 +133,8 @@ class TribulusTests: XCTestCase {
             $0.underlineColor = defaultAttributes.underlineColor
             $0.URL = defaultAttributes.URL
             
+            $0.lineSpacing = defaultAttributes.lineSpacing
+            $0.alignment = defaultAttributes.alignment
             $0.lineBreakMode = defaultAttributes.lineBreakMode
             $0.lineHeightMultiplier = defaultAttributes.lineHeightMultiplier
             $0.paragraphSpacingAfter = defaultAttributes.paragraphSpacingAfter
@@ -242,5 +249,97 @@ class TribulusTests: XCTestCase {
                                             options: []) { (value, range, stop) in
                                                 XCTAssertEqual(value as? UIColor, colors[range])
         }
+    }
+    
+    func testThatEmptyStringHasNoAttributes() {
+        let attributedString = NSMutableAttributedString(string: "")
+        attributedString.resolveAttributes(in: attributedString.fullRange) {
+            $0.alignment = .center
+        }
+        XCTAssertNil(attributedString.existingAttributes)
+    }
+    
+    func testThatTextEffectIsBeingInitializedIncorrectly() {
+        let textEffect = Attributes.TextEffect(rawValue: NSTextEffectLetterpressStyle)
+        let nilTextEffect = Attributes.TextEffect(rawValue: "Foo")
+        XCTAssertEqual(textEffect, .letterpress)
+        XCTAssertNil(nilTextEffect)
+    }
+    
+    // MARK: - UIFontDescriptorSymbolicTraits Convenience
+    
+    func testThatCorrectlySetsFontSize() {
+        let attributes = Attributes()
+        attributes.fontSize = 16
+        XCTAssertEqual(attributes.fontSize, 16)
+        attributes.fontSize = nil
+        XCTAssertEqual(attributes.fontSize, 12)
+    }
+    
+    func testThatCorrectlySetsBold() {
+        let attributes = Attributes()
+        attributes.bold = true
+        XCTAssertTrue(attributes.bold)
+        attributes.bold = false
+        XCTAssertFalse(attributes.bold)
+    }
+    
+    func testThatCorrectlySetsItalic() {
+        let attributes = Attributes()
+        attributes.italic = true
+        XCTAssertTrue(attributes.italic)
+        attributes.italic = false
+        XCTAssertFalse(attributes.italic)
+    }
+    
+    // MARK: - NSParagraphStyle Mapping
+    
+    func testThatCorrectlyMapsParagraphAttributes() {
+        let mutableParagraphStyle = NSMutableParagraphStyle()
+        mutableParagraphStyle.lineSpacing = 10.2
+        mutableParagraphStyle.alignment = .center
+        mutableParagraphStyle.lineBreakMode = .byClipping
+        mutableParagraphStyle.lineHeightMultiple = 2.5
+        mutableParagraphStyle.paragraphSpacing = 12.6
+        mutableParagraphStyle.paragraphSpacingBefore = 10.3
+        mutableParagraphStyle.headIndent = 8.7
+        mutableParagraphStyle.tailIndent = 7.8
+        mutableParagraphStyle.firstLineHeadIndent = 6.4
+        mutableParagraphStyle.minimumLineHeight = 19.5
+        mutableParagraphStyle.maximumLineHeight = 16.2
+        mutableParagraphStyle.hyphenationFactor = 3.4
+        mutableParagraphStyle.allowsDefaultTighteningForTruncation = true
+        
+        let lineSpacing = mutableParagraphStyle.mapAttribute { Float($0.lineSpacing) }
+        let alignment = mutableParagraphStyle.mapAttribute { $0.alignment }
+        let lineHeightMultiplier = mutableParagraphStyle.mapAttribute { Float($0.lineHeightMultiple) }
+        let paragraphSpacingBefore = mutableParagraphStyle.mapAttribute { Float($0.paragraphSpacingBefore) }
+        let paragraphSpacingAfter = mutableParagraphStyle.mapAttribute { Float($0.paragraphSpacing) }
+        let headIndent = mutableParagraphStyle.mapAttribute { Float($0.headIndent) }
+        let tailIndent = mutableParagraphStyle.mapAttribute { Float($0.tailIndent) }
+        let firstLineHeadIndent = mutableParagraphStyle.mapAttribute { Float($0.firstLineHeadIndent) }
+        let minimumLineHeight = mutableParagraphStyle.mapAttribute { Float($0.minimumLineHeight) }
+        let maximumLineHeight = mutableParagraphStyle.mapAttribute { Float($0.maximumLineHeight) }
+        let hyphenationFactor = mutableParagraphStyle.mapAttribute { Float($0.hyphenationFactor) }
+        let lineBreakMode = mutableParagraphStyle.mapAttribute { $0.lineBreakMode }
+        let allowsTighteningForTruncation = mutableParagraphStyle.mapAttribute { $0.allowsDefaultTighteningForTruncation }
+        
+        XCTAssertEqual(lineSpacing, 10.2)
+        XCTAssertEqual(alignment, .center)
+        XCTAssertEqual(lineBreakMode, .byClipping)
+        XCTAssertEqual(lineHeightMultiplier, 2.5)
+        XCTAssertEqual(paragraphSpacingAfter, 12.6)
+        XCTAssertEqual(paragraphSpacingBefore, 10.3)
+        XCTAssertEqual(headIndent, 8.7)
+        XCTAssertEqual(tailIndent, 7.8)
+        XCTAssertEqual(firstLineHeadIndent, 6.4)
+        XCTAssertEqual(minimumLineHeight, 19.5)
+        XCTAssertEqual(maximumLineHeight, 16.2)
+        XCTAssertEqual(hyphenationFactor, 3.4)
+        XCTAssertEqual(allowsTighteningForTruncation, true)
+        
+        mutableParagraphStyle.hyphenationFactor = 0.0
+        let nilHyphenationFactor = mutableParagraphStyle.mapAttribute { $0.hyphenationFactor }
+        XCTAssertNil(nilHyphenationFactor)
     }
 }

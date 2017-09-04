@@ -60,11 +60,12 @@ public class Attributes {
 extension Attributes {
     public var fontSize: CGFloat? {
         set {
-            guard let newValue = newValue else {
-                self.font = nil
-                return
+            if let newValue = newValue {
+                self.font = currentFont.withSize(newValue)
             }
-            self.font = currentFont.withSize(newValue)
+            else {
+                self.font = currentFont.withSize(Attributes.defaultFontSize)
+            }
         }
         get {
             return currentFont.pointSize
@@ -91,12 +92,13 @@ extension Attributes {
         else {
             currentTraits.remove(traits)
         }
-        if let newDescriptor = descriptor.withSymbolicTraits(traits) {
+        if let newDescriptor = descriptor.withSymbolicTraits(currentTraits) {
             self.font = UIFont(descriptor: newDescriptor, size: font.pointSize)
         }
     }
     
-    private static let defaultFont = UIFont.systemFont(ofSize: 12)
+    private static let defaultFontSize: CGFloat = 12
+    private static let defaultFont = UIFont.systemFont(ofSize: defaultFontSize)
     private var currentFont: UIFont {
         return self.font ?? Attributes.defaultFont
     }
