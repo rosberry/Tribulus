@@ -81,7 +81,7 @@ Here's a code for appending new attributed string:
 let attributedString = NSMutableAttributedString(string: "Foo")
 attributedString
     	.append(string: " Bar") {
-        	$0.color = .red
+            $0.color = .red
         }
         .append(string: " Baz") {
             $0.direction = .horizontal
@@ -93,7 +93,7 @@ And in the same simple way you can append any image:
 ```swift
 let attributedString = NSMutableAttributedString(string: "Foo")
 attributedString.append(image: UIImage(named: "Bar"), 
-    					bounds: CGRect(x: 0, y: 0, width: 40, height: 40))
+    			bounds: CGRect(x: 0, y: 0, width: 40, height: 40))
 ```
 ### Insertion
 
