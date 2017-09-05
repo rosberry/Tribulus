@@ -7,7 +7,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/Tribulus.svg?style=flat)](http://cocoadocs.org/docsets/Tribulus)
 ![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
-[![Coveralls](https://img.shields.io/badge/coverage-100%25-yellow.svg)](https://github.com/rosberry/Tribulus)
+[![Test Coverage](https://img.shields.io/badge/coverage-100%25-yellow.svg)](https://github.com/rosberry/Tribulus)
 [![License](https://img.shields.io/cocoapods/l/Tribulus.svg?style=flat)](http://cocoadocs.org/docsets/Tribulus)
 
 **Tribulus** provides very convenient way to compose attributed strings.
