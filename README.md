@@ -7,6 +7,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/Tribulus.svg?style=flat)](http://cocoadocs.org/docsets/Tribulus)
 ![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+[![Test Coverage](https://img.shields.io/badge/coverage-100%25-yellow.svg)](https://github.com/rosberry/Tribulus)
 [![License](https://img.shields.io/cocoapods/l/Tribulus.svg?style=flat)](http://cocoadocs.org/docsets/Tribulus)
 
 **Tribulus** provides very convenient way to compose attributed strings.
@@ -129,6 +130,14 @@ let attributedString = NSAttributedString(string: testString) {
 # Author 🖌
 
 Dmitry Frishbuter, dmitry.frishbuter@rosberry.com
+
+# About
+
+<img src="https://github.com/rosberry/Foundation/blob/master/Assets/logo.png?raw=true" width="100" />
+
+This project is owned and maintained by Rosberry. We build mobile apps for users worldwide 🌏.
+
+Check out our [open source projects](https://github.com/rosberry), read [our blog](https://medium.com/@Rosberry) or give us a high-five on 🐦 [@rosberryapps](http://twitter.com/RosberryApps).
 
 # License 📃
 
