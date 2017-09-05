@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Tribulus provides very convenient way to compose attributed strings.
+It is a framework based on usage custom Attributes class and nice chaining syntax.
                        DESC
 
   s.homepage         = 'https://github.com/rosberry/Tribulus'
