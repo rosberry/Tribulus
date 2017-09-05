@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.0.2](https://github.com/rosberry/Tribulus/tree/0.0.2) (2017-09-05)
+[Full Changelog](https://github.com/rosberry/Tribulus/compare/0.0.1...0.0.2)
+
 ## [0.0.1](https://github.com/rosberry/Tribulus/tree/0.0.1) (2017-09-04)
 
 
