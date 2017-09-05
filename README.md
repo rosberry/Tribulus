@@ -65,10 +65,10 @@ To initialize attributed string with required attributes, you can use following 
 ```swift
 let attributedString = NSAttributedString(string: testString) {
 		$0.font = .systemFont(ofSize: 10, weight: UIFontWeightBold)
-        $0.backgroundColor = .green
-        $0.color = .black
-        $0.baselineOffset = 14.0
-    }
+        	$0.backgroundColor = .green
+        	$0.color = .black
+        	$0.baselineOffset = 14.0
+    	    }
 ```
 
 ### Appending
@@ -102,8 +102,8 @@ Moreover **Tribulus** allows you to insert newly configured attributed string at
 ```swift
 let attributedString = NSMutableAttributedString(string: "Foo  Baz")
  attributedString
-		.insert(string: "Bar", at: 4) {
-        	$0.textEffect = .letterpress
+	.insert(string: "Bar", at: 4) {
+            $0.textEffect = .letterpress
         }
 ```
 
@@ -111,7 +111,7 @@ or to insert an image:
 
 ```swift
 attributedString.insert(image: UIImage(named: "Bar"), 
-    					bounds: CGRect(x: 0, y: 0, width: 40, height: 40), 
+			bounds: CGRect(x: 0, y: 0, width: 40, height: 40), 
                         at: 0)
 ```
 
@@ -122,8 +122,8 @@ Instead on creating `UIFontDescriptorSymbolicTraits` you can just set **bold** a
 ```swift
 let attributedString = NSAttributedString(string: testString) {
 		$0.bold = true
-    	$0.italic = true
-	}
+    		$0.italic = true
+	    }
 ```
 
 # Author 🖌
