@@ -1,14 +1,15 @@
 
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.3
+
 env:
     global:
     - PROJECT=Tribulus.xcodeproj
     - IOS_FRAMEWORK_SCHEME="Tribulus"
-    - IOS_SDK=iphonesimulator10.0
+    - IOS_SDK=iphonesimulator10.3.1
     matrix:
-    - DESTINATION="OS=10.0,name=iPhone 7 Plus"     SCHEME="$IOS_FRAMEWORK_SCHEME"     SDK="$IOS_SDK"
+    - DESTINATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7"     SCHEME="$IOS_FRAMEWORK_SCHEME"
 
-script:
-    - set -o pipefail
-    - xcodebuild -project "$PROJECT" -scheme "$IOS_FRAMEWORK_SCHEME" -sdk "$IOS_SDK" -destination "$DESTINATION" build test | xcpretty -c --test --color
+script: 
+  - set -o pipefail
+  - xcodebuild -project "$PROJECT" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "$DESTINATION" build test | xcpretty -c --test --color
